@@ -5,6 +5,8 @@ package br.ufs.dcomp.ExemploTcpJava;
 
 import java.net.*;
 import java.io.*;
+import Scanner;
+
 public class TCPServer{
     public static void main(String[] args){
         
@@ -28,6 +30,14 @@ public class TCPServer{
             String msg = new String(buf); // Mapeando vetor de bytes recebido para String
             
             System.out.println("  Mensagem recebida: "+ msg);
+            
+            msg = "Olá, DCOMP!!! Estou sendo enviado do servidor";
+            buf = msg.getBytes(); // Obtendo a respresntação em bytes da mensagem
+
+            System.out.print("[ Enviando mensagem    ..............................  ");
+            os.write(buf);
+            System.out.println("[OK] ]");
+            
         }catch(Exception e){System.out.println(e);}    
         System.out.println("[ FIM ]");
     }
